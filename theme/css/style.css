@@ -1,0 +1,354 @@
+:root {
+  --color-text: #000000;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #E3F9FF;
+  --font-main: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --container-width: 870px;
+  --spacing-stack: 66px;
+  --primary-color: #1AD4FF;
+  --secondary-color: #333333;
+  --accent-color: #1AD4FF;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Layout Containers --- */
+.l-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.l-stack>*+* {
+  margin-top: var(--spacing-stack);
+}
+
+.l-measure {
+  max-width: 60ch;
+}
+
+/* --- Header Styles --- */
+.l-site-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 46px 0 52px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  border-bottom: none;
+}
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.l-navigation {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.l-navigation a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.l-navigation a:hover {
+  text-decoration: underline;
+}
+
+.l-navigation a.highlight {
+  /* Style for special links if needed */
+}
+
+/* --- Typography --- */
+h1,
+.h1 {
+  font-size: 53px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+h2,
+.h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3,
+.h3,
+.h4 {
+  font-size: 23px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* --- Homepage specific --- */
+.l-jumbo {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.bg-rainbow-avatar {
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  padding: 4px;
+  width: 110px;
+  height: 110px;
+}
+
+.bg-rainbow-avatar img {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
+}
+
+.theme-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+/* --- Post Grid/Stack --- */
+.l-post-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-stack-item {
+  width: 45%;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .post-stack-item {
+    width: 100%;
+  }
+
+  .l-jumbo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 8px 0;
+}
+
+.post-stack-item h3 a {
+  text-decoration: none;
+}
+
+.post-stack-item h3 a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  padding: 66px 0;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* --- Gallery & Lightbox Styles --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background: #fff;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.gallery-grid-large .gallery-item img {
+  height: 600px;
+  object-fit: contain;
+  background-color: #f9f9f9;
+}
+
+.gallery-caption {
+  padding: 10px;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.gallery-metadata {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+/* Lightbox Modal */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+  color: #fff;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 80%;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* --- Dropdown Navigation --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  border-radius: 4px;
+  top: 100%;
+  /* Align directly below */
+  left: 0;
+  /* Align with left edge of parent */
+  padding: 8px 0;
+  border: 1px solid #eee;
+}
+
+.dropdown-content a {
+  color: var(--color-text);
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: normal;
+  font-size: 0.9rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--color-bg-secondary);
+  text-decoration: none;
+  /* No underline on hover items, just bg change */
+}
+
+/* Show on Hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobile Tidy: Ensure it works better on small screens if needed, 
+   though hover on mobile usually treats first tap as hover. */
+@media (max-width: 768px) {
+  .dropdown:hover .dropdown-content {
+    position: absolute;
+    /* Keep absolute to avoid shifting layout */
+  }
+}
+
+.dropbtn {
+  cursor: pointer;
+  padding-bottom: 20px;
+  /* Invisible styling bridge for hover stability */
+  margin-bottom: -20px;
+  /* Compensate for padding */
+}
